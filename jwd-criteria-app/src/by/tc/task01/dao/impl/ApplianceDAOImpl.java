@@ -32,8 +32,12 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 		Map<String, Object> requiredCriteria = criteria.getCriteria();
 		Map<String, Object> applianceCriteria = appliance.getSearchableCriteria();
 		for (Map.Entry<String, Object> entry : requiredCriteria.entrySet()) {
+			Object criteriaValue = entry.getValue();
+			if(criteriaValue instanceof Integer) {
+				criteriaValue = (Integer)criteriaValue*1.0;
+			}
 			Object applianceValue = applianceCriteria.get(entry.getKey());
-			if (!(applianceValue != null && entry.equals(applianceValue))) {
+			if (!(applianceValue != null && criteriaValue.equals(applianceValue))) {
 				return false;
 			}
 		}

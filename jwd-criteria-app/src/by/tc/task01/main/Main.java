@@ -22,7 +22,7 @@ public class Main {
 		//////////////////////////////////////////////////////////////////
 
 		Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());// "Oven"
-		criteriaOven.add(Oven.CAPACITY.toString(), 3);
+		criteriaOven.add(Oven.CAPACITY.toString(), 32);
 
 		try {
 			appliance = service.find(criteriaOven);
@@ -31,15 +31,13 @@ public class Main {
 			e.printStackTrace();
 		}
 
-		for (Appliance a : appliance) {
-			PrintApplianceInfo.print(a);
-		}
+		PrintApplianceInfo.print(appliance);
 
 		//////////////////////////////////////////////////////////////////
 
 		criteriaOven = new Criteria(Oven.class.getSimpleName());
-		criteriaOven.add(Oven.HEIGHT.toString(), 200);
-		criteriaOven.add(Oven.DEPTH.toString(), 300);
+		criteriaOven.add(Oven.HEIGHT.toString(), 40);
+		criteriaOven.add(Oven.DEPTH.toString(), 60);
 
 		try {
 			appliance = service.find(criteriaOven);
@@ -47,9 +45,8 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for (Appliance a : appliance) {
-			PrintApplianceInfo.print(a);
-		}
+
+		PrintApplianceInfo.print(appliance);
 
 		//////////////////////////////////////////////////////////////////
 
@@ -64,9 +61,8 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} // find(Object...obj)
-		for (Appliance a : appliance) {
-			PrintApplianceInfo.print(a);
-		}
+
+		PrintApplianceInfo.print(appliance);
 
 	}
 
